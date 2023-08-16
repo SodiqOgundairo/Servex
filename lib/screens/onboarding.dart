@@ -14,44 +14,54 @@ class _StartUpPageState extends State<StartUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset('assets/images/welcome.png'),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (BuildContext context) {
-                    return const LoginPage();
-                  },
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/images/welcome.png'),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return const LoginPage();
+                    },
+                  ),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size(300, 40),
+                backgroundColor: kprimaryColor,
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(7),
                 ),
-              );
-            },
-            style: ElevatedButton.styleFrom(
-              minimumSize: const Size(300, 40),
-              backgroundColor: kprimaryColor,
-              foregroundColor: Colors.white,
+              ),
+              child: const Text('Login'),
             ),
-            child: const Text('Login'),
-          ),
-          OutlinedButton(
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) {
-                    return const SignUpPage();
-                  },
+            const SizedBox(
+              height: 20.0,
+            ),
+            OutlinedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return const SignUpPage();
+                    },
+                  ),
+                );
+              },
+              style: OutlinedButton.styleFrom(
+                minimumSize: const Size(300, 40),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(7),
                 ),
-              );
-            },
-            style: OutlinedButton.styleFrom(
-              minimumSize: const Size(300, 40),
-              foregroundColor: ksecondaryColor,
+              ),
+              child: const Text('SignUp'),
             ),
-            child: const Text('SignUp'),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
