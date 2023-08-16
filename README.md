@@ -1,2 +1,2 @@
-# XClone
-A clone of "X" using flutter and appwrite
+# ServeX
+A financial application for all your needs
