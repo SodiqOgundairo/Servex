@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/helpers/styles.dart';
-import 'package:flutter_application/screens/bio_page.dart';
-import 'package:flutter_application/widgets/contact_input.dart';
+import 'package:flutter_application/screens/password_page.dart';
+import 'package:flutter_application/widgets/bio_input.dart';
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({super.key});
+class BioPage extends StatefulWidget {
+  const BioPage({super.key});
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<BioPage> createState() => _BioPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _BioPageState extends State<BioPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,34 +55,40 @@ class _SignUpPageState extends State<SignUpPage> {
                 color: Colors.grey.shade300,
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              child: const ContactInputWidget(),
+              child: const BioInputWidget(),
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return const BioPage();
-                    },
+            Positioned(
+              bottom: 0.0,
+              child: SafeArea(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return const PasswordPage();
+                        },
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(370, 40),
+                    backgroundColor: kprimaryColor,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7),
+                    ),
                   ),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size(370, 40),
-                backgroundColor: kprimaryColor,
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(7),
+                  child: const Text('Next'),
                 ),
               ),
-              child: const Text('Next'),
             ),
             ListTile(
               title: const Text('Already have an Account?'),
               trailing: TextButton(
                 onPressed: () {},
-                child: const Text('Signup'),
+                child: const Text('Login Here'),
               ),
+              visualDensity: VisualDensity.comfortable,
             )
           ],
         ),
