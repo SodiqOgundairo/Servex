@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/helpers/styles.dart';
-import 'package:flutter_application/widgets/pwd_input.dart';
+import 'package:flutter_application/screens/auth/password_page.dart';
+import 'package:flutter_application/widgets/bio_input.dart';
 
-class PasswordPage extends StatefulWidget {
-  const PasswordPage({super.key});
+class BioPage extends StatefulWidget {
+  const BioPage({super.key});
 
   @override
-  State<PasswordPage> createState() => _PasswordPageState();
+  State<BioPage> createState() => _BioPageState();
 }
 
-class _PasswordPageState extends State<PasswordPage> {
+class _BioPageState extends State<BioPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,13 +55,21 @@ class _PasswordPageState extends State<PasswordPage> {
                 color: Colors.grey.shade300,
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              child: const PwdInput(),
+              child: const BioInputWidget(),
             ),
             Positioned(
               bottom: 0.0,
               child: SafeArea(
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return const PasswordPage();
+                        },
+                      ),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size(370, 40),
                     backgroundColor: kprimaryColor,
@@ -80,7 +89,13 @@ class _PasswordPageState extends State<PasswordPage> {
                 child: const Text('Login Here'),
               ),
               visualDensity: VisualDensity.comfortable,
-            )
+            ),
+            const SizedBox(
+              child: Text(
+                'Servex 1.0',
+                style: TextStyle(color: Colors.grey),
+              ),
+            ),
           ],
         ),
       ),

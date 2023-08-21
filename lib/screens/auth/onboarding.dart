@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/screens/login.dart';
-import 'package:flutter_application/screens/signup.dart';
+import 'package:flutter_application/screens/auth/login.dart';
+import 'package:flutter_application/screens/auth/signup.dart';
 import 'package:flutter_application/helpers/styles.dart';
 
 class StartUpPage extends StatefulWidget {
@@ -59,6 +59,12 @@ class _StartUpPageState extends State<StartUpPage> {
                 ),
               ),
               child: const Text('SignUp'),
+            ),
+            const SizedBox(
+              child: Text(
+                'Servex 1.0',
+                style: TextStyle(color: Colors.grey),
+              ),
             ),
           ],
         ),

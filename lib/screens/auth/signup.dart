@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/helpers/styles.dart';
-import 'package:flutter_application/screens/bio_page.dart';
+import 'package:flutter_application/screens/auth/bio_page.dart';
 import 'package:flutter_application/widgets/contact_input.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -45,7 +45,7 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
             Container(
               margin: const EdgeInsets.symmetric(
-                vertical: 60.0,
+                vertical: 40.0,
                 horizontal: 20.0,
               ),
               padding: const EdgeInsets.all(
@@ -83,7 +83,30 @@ class _SignUpPageState extends State<SignUpPage> {
                 onPressed: () {},
                 child: const Text('Signup'),
               ),
-            )
+            ),
+            const SizedBox(
+              height: 40,
+              child: Text('OR'),
+            ),
+            OutlinedButton.icon(
+              onPressed: () {},
+              label: const Text('SIGNUP WITH GOOGLE'),
+              style: OutlinedButton.styleFrom(
+                minimumSize: const Size(370, 40),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(7),
+                ),
+              ),
+              icon: const ImageIcon(
+                AssetImage('assets/images/google-g-logo.png'),
+              ),
+            ),
+            const SizedBox(
+              child: Text(
+                'Servex 1.0',
+                style: TextStyle(color: Colors.grey),
+              ),
+            ),
           ],
         ),
       ),

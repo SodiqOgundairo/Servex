@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/screens/onboarding.dart';
+import 'package:flutter_application/screens/auth/onboarding.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -40,6 +40,12 @@ class _HomePageState extends State<HomePage> {
             Image(
               image: AssetImage('assets/images/logo.png'),
               alignment: Alignment.topLeft,
+            ),
+            SizedBox(
+              child: Text(
+                'Servex 1.0',
+                style: TextStyle(color: Colors.grey),
+              ),
             ),
           ],
         ),

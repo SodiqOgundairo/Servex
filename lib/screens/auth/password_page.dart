@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/helpers/styles.dart';
-import 'package:flutter_application/screens/password_page.dart';
-import 'package:flutter_application/widgets/bio_input.dart';
+import 'package:flutter_application/screens/auth/signup_success.dart';
+import 'package:flutter_application/widgets/pwd_input.dart';
 
-class BioPage extends StatefulWidget {
-  const BioPage({super.key});
+class PasswordPage extends StatefulWidget {
+  const PasswordPage({super.key});
 
   @override
-  State<BioPage> createState() => _BioPageState();
+  State<PasswordPage> createState() => _PasswordPageState();
 }
 
-class _BioPageState extends State<BioPage> {
+class _PasswordPageState extends State<PasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +55,7 @@ class _BioPageState extends State<BioPage> {
                 color: Colors.grey.shade300,
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              child: const BioInputWidget(),
+              child: const PwdInput(),
             ),
             Positioned(
               bottom: 0.0,
@@ -65,7 +65,7 @@ class _BioPageState extends State<BioPage> {
                     Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
                         builder: (BuildContext context) {
-                          return const PasswordPage();
+                          return const SignupSuccess();
                         },
                       ),
                     );
@@ -78,7 +78,7 @@ class _BioPageState extends State<BioPage> {
                       borderRadius: BorderRadius.circular(7),
                     ),
                   ),
-                  child: const Text('Next'),
+                  child: const Text('Comlete your SignUp'),
                 ),
               ),
             ),
@@ -89,7 +89,13 @@ class _BioPageState extends State<BioPage> {
                 child: const Text('Login Here'),
               ),
               visualDensity: VisualDensity.comfortable,
-            )
+            ),
+            const SizedBox(
+              child: Text(
+                'Servex 1.0',
+                style: TextStyle(color: Colors.grey),
+              ),
+            ),
           ],
         ),
       ),
