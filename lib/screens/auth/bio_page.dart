@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/helpers/styles.dart';
 import 'package:flutter_application/screens/auth/password_page.dart';
+import 'package:flutter_application/screens/auth/login.dart';
 import 'package:flutter_application/widgets/bio_input.dart';
 
 class BioPage extends StatefulWidget {
@@ -85,7 +86,15 @@ class _BioPageState extends State<BioPage> {
             ListTile(
               title: const Text('Already have an Account?'),
               trailing: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) {
+                        return const LoginPage();
+                      },
+                    ),
+                  );
+                },
                 child: const Text('Login Here'),
               ),
               visualDensity: VisualDensity.comfortable,

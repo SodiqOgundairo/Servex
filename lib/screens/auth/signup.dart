@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/helpers/styles.dart';
 import 'package:flutter_application/screens/auth/bio_page.dart';
+import 'package:flutter_application/screens/auth/login.dart';
 import 'package:flutter_application/widgets/contact_input.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -80,8 +81,16 @@ class _SignUpPageState extends State<SignUpPage> {
             ListTile(
               title: const Text('Already have an Account?'),
               trailing: TextButton(
-                onPressed: () {},
-                child: const Text('Signup'),
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) {
+                        return const LoginPage();
+                      },
+                    ),
+                  );
+                },
+                child: const Text('Login'),
               ),
             ),
             const SizedBox(

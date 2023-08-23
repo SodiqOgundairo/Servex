@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/screens/auth/forgot_password.dart';
+import 'package:flutter_application/screens/auth/login.dart';
+import 'package:flutter_application/screens/auth/password_reset.dart';
 import 'package:flutter_application/screens/auth/signup.dart';
 import 'package:flutter_application/helpers/styles.dart';
-import 'package:flutter_application/screens/dash.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class ForgotPassword extends StatefulWidget {
+  const ForgotPassword({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<ForgotPassword> createState() => _ForgotPasswordState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,20 +29,27 @@ class _LoginPageState extends State<LoginPage> {
             const Column(
               children: [
                 Text(
-                  'Login',
+                  'Forgot your Password?',
                   style: TextStyle(
                     color: Color.fromARGB(255, 1, 1, 57),
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                   ),
                 ),
-                // Text(
-                //   'Sign up to secure your finances',
-                //   style: TextStyle(
-                //     color: Colors.grey,
-                //   ),
-                // ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Center(
+                    child: Text(
+                      'Let’s help you recover your password and get back into your account.',
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
               ],
+            ),
+
+            const SizedBox(
+              height: 30.0,
             ),
             Container(
               margin: const EdgeInsets.symmetric(
@@ -54,12 +61,15 @@ class _LoginPageState extends State<LoginPage> {
               ),
               child: Column(
                 children: [
+                  const Text(
+                    'Input your EMAIL or PHONE here',
+                    textAlign: TextAlign.left,
+                  ),
                   TextField(
                     cursorColor: kprimaryColor,
                     keyboardAppearance: Brightness.dark,
                     keyboardType: TextInputType.name,
                     decoration: InputDecoration(
-                      labelText: 'Username',
                       contentPadding: const EdgeInsets.symmetric(
                         vertical: 0.0,
                         horizontal: 10.0,
@@ -70,41 +80,18 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       fillColor: Colors.white,
                       filled: true,
-                      hintText: 'John',
+                      hintText: 'example@email.com',
                     ),
                   ),
                   const SizedBox(
-                    height: 20.0,
-                  ),
-                  TextField(
-                    cursorColor: kprimaryColor,
-                    obscureText: true,
-                    keyboardAppearance: Brightness.dark,
-                    keyboardType: TextInputType.name,
-                    decoration: InputDecoration(
-                      labelText: ' Password',
-                      contentPadding: const EdgeInsets.symmetric(
-                        vertical: 0.0,
-                        horizontal: 10.0,
-                      ),
-                      border: OutlineInputBorder(
-                        // borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      fillColor: Colors.white,
-                      filled: true,
-                      hintText: '*********',
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20.0,
+                    height: 10.0,
                   ),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushReplacement(
                         MaterialPageRoute(
                           builder: (BuildContext context) {
-                            return const Dashboard();
+                            return const PasswordReset();
                           },
                         ),
                       );
@@ -117,10 +104,13 @@ class _LoginPageState extends State<LoginPage> {
                         borderRadius: BorderRadius.circular(7),
                       ),
                     ),
-                    child: const Text('Login'),
+                    child: const Text('SEARCH FOR MY ACCOUNT'),
                   ),
                 ],
               ),
+            ),
+            const SizedBox(
+              height: 10.0,
             ),
             Center(
               // title: const Text("Forgot Password"),
@@ -129,12 +119,12 @@ class _LoginPageState extends State<LoginPage> {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (BuildContext context) {
-                        return const ForgotPassword();
+                        return const LoginPage();
                       },
                     ),
                   );
                 },
-                child: const Text('Forgot Password?'),
+                child: const Text('Login'),
               ),
             ),
             Center(
