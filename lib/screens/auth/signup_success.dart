@@ -60,13 +60,10 @@ class _SignupSuccessState extends State<SignupSuccess> {
                 ],
               ),
             ),
-            const Positioned(
-              bottom: 0.0,
-              child: SizedBox(
-                child: Text(
-                  'Servex 1.0',
-                  style: TextStyle(color: Colors.grey),
-                ),
+            const SizedBox(
+              child: Text(
+                'Servex 1.0',
+                style: TextStyle(color: Colors.grey),
               ),
             ),
           ],

@@ -58,29 +58,26 @@ class _PasswordPageState extends State<PasswordPage> {
               ),
               child: const PwdInput(),
             ),
-            Positioned(
-              bottom: 0.0,
-              child: SafeArea(
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(
-                        builder: (BuildContext context) {
-                          return const SignupSuccess();
-                        },
-                      ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(370, 40),
-                    backgroundColor: kprimaryColor,
-                    foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(7),
+            SafeArea(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) {
+                        return const SignupSuccess();
+                      },
                     ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size(370, 40),
+                  backgroundColor: kprimaryColor,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(7),
                   ),
-                  child: const Text('Comlete your SignUp'),
                 ),
+                child: const Text('Comlete your SignUp'),
               ),
             ),
             ListTile(

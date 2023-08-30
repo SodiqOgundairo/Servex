@@ -78,13 +78,10 @@ class _PasswordResetState extends State<PasswordReset> {
             Image.asset(
               'assets/images/vector1.png',
             ),
-            const Positioned(
-              bottom: 0.0,
-              child: SizedBox(
-                child: Text(
-                  'Servex 1.0',
-                  style: TextStyle(color: Colors.grey),
-                ),
+            const SizedBox(
+              child: Text(
+                'Servex 1.0',
+                style: TextStyle(color: Colors.grey),
               ),
             ),
           ],
