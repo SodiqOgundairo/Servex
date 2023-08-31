@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/helpers/styles.dart';
+import 'package:flutter_application/screens/add_account.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -26,8 +27,19 @@ class _DashboardState extends State<Dashboard> {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                const SizedBox(
-                  child: Icon(Icons.add),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return const AddAccount();
+                        },
+                      ),
+                    );
+                  },
+                  child: const SizedBox(
+                    child: Icon(Icons.add),
+                  ),
                 ),
                 Container(
                   padding: const EdgeInsets.all(10),
@@ -278,11 +290,284 @@ class _DashboardState extends State<Dashboard> {
             height: 30.0,
           ),
           Container(
-              color: Colors.grey,
-              width: double.infinity,
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              color: Color.fromARGB(121, 211, 211, 211),
+              borderRadius: BorderRadius.vertical(
+                top: Radius.circular(20),
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 8.0,
+                vertical: 5.0,
+              ),
               child: Column(
-                children: [Text('ss')],
-              )),
+                children: [
+                  ListTile(
+                    leading: const Text(
+                      'Transactions',
+                      style: TextStyle(
+                        color: kprimaryColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    trailing: PopupMenuButton(
+                      icon: const Icon(Icons.menu),
+                      itemBuilder: (context) => [
+                        const PopupMenuItem(
+                          value: 1,
+                          child: Text(
+                            'Expenses',
+                            style: TextStyle(color: kaccentColor),
+                          ),
+                        ),
+                        const PopupMenuItem(
+                          value: 2,
+                          child: Text(
+                            'Income',
+                            style: TextStyle(color: ksecondaryColor),
+                          ),
+                        ),
+                        const PopupMenuItem(
+                          value: 3,
+                          child: Text('All'),
+                        ),
+                      ],
+                    ),
+                    // trailing: Icon(Icons.menu),
+                  ),
+                  SingleChildScrollView(
+                    physics: const AlwaysScrollableScrollPhysics(),
+                    child: Container(
+                      constraints: const BoxConstraints(maxHeight: 222),
+                      margin: const EdgeInsets.symmetric(horizontal: 8),
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(121, 211, 211, 211),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: SingleChildScrollView(
+                        // physics: const AlwaysScrollableScrollPhysics(),
+                        child: Column(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8.0,
+                                vertical: 5.0,
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(7),
+                                // border: const Border(
+                                //   bottom: BorderSide(
+                                //     width: 2,
+                                //     color: Colors.grey,
+                                //   ),
+                                // ),
+                                color: const Color.fromARGB(255, 211, 211, 211),
+                              ),
+                              child: ListTile(
+                                leading: const Icon(Icons.compare_arrows),
+                                title: const Column(
+                                  children: [
+                                    Text(
+                                      'IKEDC',
+                                      style: TextStyle(
+                                        color: kprimaryColor,
+                                      ),
+                                    ),
+                                    Text(
+                                      '4/20/22  20:43',
+                                      style: TextStyle(
+                                        fontSize: 10,
+                                        color: kprimaryColor,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                trailing: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    minimumSize: const Size(130, 40),
+                                    backgroundColor: kaccentColor,
+                                    foregroundColor: Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(7),
+                                    ),
+                                  ),
+                                  onPressed: () {},
+                                  child: const Text(
+                                    'N 20,000.00',
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8.0,
+                                vertical: 5.0,
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(7),
+                                // border: const Border(
+                                //   bottom: BorderSide(
+                                //     width: 2,
+                                //     color: Colors.grey,
+                                //   ),
+                                // ),
+                                color: const Color.fromARGB(255, 211, 211, 211),
+                              ),
+                              child: ListTile(
+                                leading: const Icon(Icons.compare_arrows),
+                                title: const Column(
+                                  children: [
+                                    Text(
+                                      'SHOPRITE IKEJA',
+                                      style: TextStyle(
+                                        color: kprimaryColor,
+                                      ),
+                                    ),
+                                    Text(
+                                      '4/20/22  14:25',
+                                      style: TextStyle(
+                                        fontSize: 10,
+                                        color: kprimaryColor,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                trailing: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    minimumSize: const Size(130, 40),
+                                    backgroundColor: kaccentColor,
+                                    foregroundColor: Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(7),
+                                    ),
+                                  ),
+                                  onPressed: () {},
+                                  child: const Text(
+                                    'N 2,000.00',
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8.0,
+                                vertical: 5.0,
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(7),
+                                // border: const Border(
+                                //   bottom: BorderSide(
+                                //     width: 2,
+                                //     color: Colors.grey,
+                                //   ),
+                                // ),
+                                color: const Color.fromARGB(255, 211, 211, 211),
+                              ),
+                              child: ListTile(
+                                leading: const Icon(Icons.compare_arrows),
+                                title: const Column(
+                                  children: [
+                                    Text(
+                                      'CHUKWU GOZIE',
+                                      style: TextStyle(
+                                        color: kprimaryColor,
+                                      ),
+                                    ),
+                                    Text(
+                                      '4/20/22  14:25',
+                                      style: TextStyle(
+                                        fontSize: 10,
+                                        color: kprimaryColor,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                trailing: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    minimumSize: const Size(130, 40),
+                                    backgroundColor: ksecondaryColor,
+                                    foregroundColor: Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(7),
+                                    ),
+                                  ),
+                                  onPressed: () {},
+                                  child: const Text(
+                                    'N 200,000.00',
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8.0,
+                                vertical: 5.0,
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(7),
+                                // border: const Border(
+                                //   bottom: BorderSide(
+                                //     width: 2,
+                                //     color: Colors.grey,
+                                //   ),
+                                // ),
+                                color: const Color.fromARGB(255, 211, 211, 211),
+                              ),
+                              child: ListTile(
+                                leading: const Icon(Icons.compare_arrows),
+                                title: const Column(
+                                  children: [
+                                    Text(
+                                      'MERANNA',
+                                      style: TextStyle(
+                                        color: kprimaryColor,
+                                      ),
+                                    ),
+                                    Text(
+                                      '4/20/22  14:25',
+                                      style: TextStyle(
+                                        fontSize: 10,
+                                        color: kprimaryColor,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                trailing: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    minimumSize: const Size(130, 40),
+                                    backgroundColor: kaccentColor,
+                                    foregroundColor: Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(7),
+                                    ),
+                                  ),
+                                  onPressed: () {},
+                                  child: const Text(
+                                    'N 2,000,000.00',
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
