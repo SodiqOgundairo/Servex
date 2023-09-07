@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/helpers/styles.dart';
-import 'package:flutter_application/screens/dash.dart';
+import 'package:flutter_application/screens/auth/password_page.dart';
 
-class AddAccount extends StatefulWidget {
-  const AddAccount({super.key});
+class PayBiller extends StatefulWidget {
+  const PayBiller({super.key});
 
   @override
-  State<AddAccount> createState() => _AddAccountState();
+  State<PayBiller> createState() => _PayBiller();
 }
 
-class _AddAccountState extends State<AddAccount> {
+class _PayBiller extends State<PayBiller> {
   String accountTypeValue = 'Select Option';
   String bankNameValue = 'Select Option';
 
@@ -18,7 +18,7 @@ class _AddAccountState extends State<AddAccount> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Add new account',
+          'Pay a Biller',
           style: TextStyle(
             color: Colors.blueAccent,
             fontSize: 14,
@@ -258,45 +258,50 @@ class _AddAccountState extends State<AddAccount> {
                 ),
               ],
             ),
-            ElevatedButton(
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return const PasswordPage();
+                        },
                       ),
-                      title: const Text('Success'),
-                      content: const Text('New Account saved succesfully!'),
-                      actions: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                            Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(
-                                builder: (BuildContext context) {
-                                  return const Dashboard();
-                                },
-                              ),
-                            );
-                          },
-                          child: const Text('Coninue'),
-                        ),
-                      ],
                     );
                   },
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size(150, 40),
-                backgroundColor: kprimaryColor,
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(7),
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(150, 40),
+                    backgroundColor: kprimaryColor,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7),
+                    ),
+                  ),
+                  child: const Text('Next'),
                 ),
-              ),
-              child: const Text('Save'),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return const PasswordPage();
+                        },
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(150, 40),
+                    backgroundColor: kprimaryColor,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7),
+                    ),
+                  ),
+                  child: const Text('Next'),
+                ),
+              ],
             ),
           ],
         )),

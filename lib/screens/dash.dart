@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/helpers/styles.dart';
 import 'package:flutter_application/screens/add_account.dart';
+import 'package:flutter_application/screens/pay_biller.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -228,7 +229,7 @@ class _DashboardState extends State<Dashboard> {
               ],
             ),
           ),
-          const SizedBox(height: 30.0),
+          const SizedBox(height: 20.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -247,14 +248,30 @@ class _DashboardState extends State<Dashboard> {
               ),
               Card(
                 color: Colors.grey.shade200,
-                child: IconButton(
-                  color: kprimaryColor,
-                  onPressed: () {},
-                  icon: const ImageIcon(
-                    AssetImage(
-                      'assets/images/card.png',
-                      // 'assets/images/logo.png',
-                    ),
+                child: Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: Column(
+                    children: [
+                      IconButton(
+                        color: kprimaryColor,
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (BuildContext context) {
+                                return const PayBiller();
+                              },
+                            ),
+                          );
+                        },
+                        icon: const ImageIcon(
+                          AssetImage(
+                            'assets/images/card.png',
+                            // 'assets/images/logo.png',
+                          ),
+                        ),
+                      ),
+                      const Text('Pay Bill')
+                    ],
                   ),
                 ),
               ),
@@ -287,7 +304,7 @@ class _DashboardState extends State<Dashboard> {
             ],
           ),
           const SizedBox(
-            height: 30.0,
+            height: 20.0,
           ),
           Container(
             width: double.infinity,
