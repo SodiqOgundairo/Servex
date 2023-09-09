@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/helpers/styles.dart';
 // import 'package:flutter_application/screens/auth/login.dart';
 // import 'package:flutter_application/screens/auth/signup.dart';
 import 'package:flutter_application/screens/dash.dart';
+import 'package:flutter_application/screens/income.dart';
 import 'package:flutter_application/screens/pay_biller.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
@@ -18,21 +20,24 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      backgroundColor: Colors.black,
       items: const [
         BottomNavigationBarItem(
+          backgroundColor: kprimaryColor,
           icon: Icon(Icons.home),
           label: 'Home',
         ),
         BottomNavigationBarItem(
+          backgroundColor: kprimaryColor,
           icon: Icon(Icons.credit_card),
           label: 'Pay',
         ),
         BottomNavigationBarItem(
+          backgroundColor: kprimaryColor,
           icon: Icon(Icons.attach_money_rounded),
           label: 'Income',
         ),
         BottomNavigationBarItem(
+          backgroundColor: kprimaryColor,
           icon: Icon(Icons.person),
           label: 'Profile',
         ),
@@ -48,19 +53,19 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
 
         switch (index) {
           case 0:
-            Navigator.push(context,
+            Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => const Dashboard()));
             break;
           case 1:
-            Navigator.push(context,
+            Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => const PayBiller()));
             break;
           case 2:
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const PayBiller()));
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => const IncomeWidget()));
             break;
           case 3:
-            Navigator.push(context,
+            Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => const PayBiller()));
             break;
         }

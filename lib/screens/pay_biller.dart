@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/helpers/styles.dart';
-import 'package:flutter_application/screens/auth/password_page.dart';
+import 'package:flutter_application/screens/payment_fail.dart';
+import 'package:flutter_application/screens/payment_success.dart';
 import 'package:flutter_application/widgets/nav_bar.dart';
 
 class PayBiller extends StatefulWidget {
@@ -11,8 +12,9 @@ class PayBiller extends StatefulWidget {
 }
 
 class _PayBiller extends State<PayBiller> {
-  String accountTypeValue = 'Select Option';
-  String bankNameValue = 'Select Option';
+  String billTypeValue = 'Select Option';
+  String merchantValue = 'Select Option';
+  String productTypeValue = 'Select Option';
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +46,7 @@ class _PayBiller extends State<PayBiller> {
               Column(
                 children: [
                   const Text(
-                    'Account Type',
+                    'Bill Type',
                     style: TextStyle(
                       color: kprimaryColor,
                     ),
@@ -52,17 +54,18 @@ class _PayBiller extends State<PayBiller> {
                   Container(
                     // width: double.infinity,
                     decoration: BoxDecoration(
-                        color: kprimaryColor,
-                        borderRadius: BorderRadius.circular(7)),
+                      color: kprimaryColor,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
                     child: DropdownButton<String>(
                       isExpanded: true,
                       elevation: 0,
                       iconSize: 35,
                       padding: const EdgeInsets.symmetric(
                         horizontal: 20,
-                        vertical: 5,
+                        vertical: 10,
                       ),
-                      value: accountTypeValue,
+                      value: billTypeValue,
                       icon: const Icon(Icons.arrow_drop_down_rounded),
                       style: const TextStyle(
                         color: Colors.blueAccent,
@@ -73,7 +76,7 @@ class _PayBiller extends State<PayBiller> {
                       // ),
                       onChanged: (String? newValue) {
                         setState(() {
-                          accountTypeValue = newValue!;
+                          billTypeValue = newValue!;
                         });
                       },
                       items: const [
@@ -88,16 +91,16 @@ class _PayBiller extends State<PayBiller> {
                           ),
                         ),
                         DropdownMenuItem<String>(
-                          value: 'Savings',
-                          child: Text('Savings'),
+                          value: 'Type 1',
+                          child: Text('Type 1'),
                         ),
                         DropdownMenuItem<String>(
-                          value: 'Investments',
-                          child: Text('Investments'),
+                          value: 'Type 2',
+                          child: Text('Type 2'),
                         ),
                         DropdownMenuItem<String>(
-                          value: 'Checking',
-                          child: Text('Checking'),
+                          value: 'Type 3',
+                          child: Text('Type 3'),
                         ),
                       ],
                     ),
@@ -107,7 +110,7 @@ class _PayBiller extends State<PayBiller> {
               Column(
                 children: [
                   const Text(
-                    'Bank',
+                    'Merchant',
                     style: TextStyle(
                       color: kprimaryColor,
                     ),
@@ -115,20 +118,20 @@ class _PayBiller extends State<PayBiller> {
                   Container(
                     // width: double.infinity,
                     decoration: BoxDecoration(
-                        color: Colors.grey.shade100,
-                        borderRadius: BorderRadius.circular(7)),
+                        color: kprimaryColor,
+                        borderRadius: BorderRadius.circular(2)),
                     child: DropdownButton<String>(
                       isExpanded: true,
                       elevation: 0,
                       iconSize: 35,
                       padding: const EdgeInsets.symmetric(
                         horizontal: 20,
-                        vertical: 5,
+                        vertical: 10,
                       ),
-                      value: bankNameValue,
+                      value: merchantValue,
                       icon: const Icon(Icons.arrow_drop_down_rounded),
                       style: const TextStyle(
-                        color: Colors.black,
+                        color: Colors.blueAccent,
                       ),
                       // underline: Container(
                       //   height: 2,
@@ -136,7 +139,7 @@ class _PayBiller extends State<PayBiller> {
                       // ),
                       onChanged: (String? newValue) {
                         setState(() {
-                          bankNameValue = newValue!;
+                          merchantValue = newValue!;
                         });
                       },
                       items: const [
@@ -166,6 +169,10 @@ class _PayBiller extends State<PayBiller> {
                           value: 'LotusBank',
                           child: Text('LotusBank'),
                         ),
+                        DropdownMenuItem<String>(
+                          value: 'Remita',
+                          child: Text('Remita'),
+                        ),
                       ],
                     ),
                   ),
@@ -174,28 +181,66 @@ class _PayBiller extends State<PayBiller> {
               Column(
                 children: [
                   const Text(
-                    'Account Name',
+                    'Product Type',
                     style: TextStyle(
                       color: kprimaryColor,
                     ),
                   ),
-                  TextField(
-                    cursorColor: kprimaryColor,
-                    keyboardAppearance: Brightness.dark,
-                    keyboardType: TextInputType.name,
-                    decoration: InputDecoration(
-                      // labelText: 'XXXXXXXX',
-                      contentPadding: const EdgeInsets.symmetric(
-                        vertical: 0.0,
-                        horizontal: 10.0,
+                  Container(
+                    // width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: kprimaryColor,
+                        borderRadius: BorderRadius.circular(2)),
+                    child: DropdownButton<String>(
+                      isExpanded: true,
+                      elevation: 0,
+                      iconSize: 35,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 10,
                       ),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(10),
+                      value: productTypeValue,
+                      icon: const Icon(Icons.arrow_drop_down_rounded),
+                      style: const TextStyle(
+                        color: Colors.blueAccent,
                       ),
-                      fillColor: Colors.grey.shade100,
-                      filled: true,
-                      hintText: 'Yemi Ogundairo',
+                      // underline: Container(
+                      //   height: 2,
+                      //   color: Colors.blueAccent,
+                      // ),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          productTypeValue = newValue!;
+                        });
+                      },
+                      items: const [
+                        DropdownMenuItem<String>(
+                          value: 'Select Option',
+                          child: Text(
+                            'Select Option',
+                            style: TextStyle(
+                              fontStyle: FontStyle.italic,
+                              color: Colors.blueAccent,
+                            ),
+                          ),
+                        ),
+                        DropdownMenuItem<String>(
+                          value: 'Product 1',
+                          child: Text('Product 1'),
+                        ),
+                        DropdownMenuItem<String>(
+                          value: 'Product 2',
+                          child: Text('Product 2'),
+                        ),
+                        DropdownMenuItem<String>(
+                          value: 'Product 3',
+                          child: Text('Product 3'),
+                        ),
+                        DropdownMenuItem<String>(
+                          value: 'Product 3',
+                          child: Text('Product 3'),
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -203,28 +248,33 @@ class _PayBiller extends State<PayBiller> {
               Column(
                 children: [
                   const Text(
-                    'Last 6 Digit on your Card',
+                    'Amount',
                     style: TextStyle(
                       color: kprimaryColor,
                     ),
                   ),
                   TextField(
-                    cursorColor: kprimaryColor,
+                    cursorColor: Colors.white,
                     keyboardAppearance: Brightness.dark,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       // labelText: 'Name',
                       contentPadding: const EdgeInsets.symmetric(
-                        vertical: 0.0,
+                        vertical: 20.0,
                         horizontal: 10.0,
                       ),
                       border: OutlineInputBorder(
                         borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(2),
                       ),
-                      fillColor: Colors.grey.shade100,
+                      fillColor: kprimaryColor,
                       filled: true,
-                      hintText: '0123456',
+                      prefix: const Text(
+                        'N',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      hintText: 'N',
+                      hintStyle: const TextStyle(color: Colors.white),
                     ),
                   ),
                 ],
@@ -232,75 +282,76 @@ class _PayBiller extends State<PayBiller> {
               Column(
                 children: [
                   const Text(
-                    'Transaction PIN',
+                    'Enter PIN',
                     style: TextStyle(
                       color: kprimaryColor,
                     ),
                   ),
                   TextField(
-                    cursorColor: kprimaryColor,
+                    cursorColor: Colors.white,
                     keyboardAppearance: Brightness.dark,
                     keyboardType: TextInputType.number,
                     obscureText: true,
                     decoration: InputDecoration(
-                      // labelText: 'Name',
-                      contentPadding: const EdgeInsets.symmetric(
-                        vertical: 0.0,
-                        horizontal: 10.0,
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      fillColor: Colors.grey.shade100,
-                      filled: true,
-                      hintText: 'XXXXXXXX',
-                    ),
+                        // labelText: 'Name',
+                        contentPadding: const EdgeInsets.symmetric(
+                          vertical: 20.0,
+                          horizontal: 10.0,
+                        ),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                        fillColor: kprimaryColor,
+                        filled: true,
+                        hintText: '***********',
+                        hintStyle: const TextStyle(color: Colors.white)),
                   ),
                 ],
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushReplacement(
                         MaterialPageRoute(
                           builder: (BuildContext context) {
-                            return const PasswordPage();
+                            return const TransactionSuccess();
                           },
                         ),
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(150, 40),
+                      minimumSize: const Size(170, 40),
+                      maximumSize: const Size(170, 40),
                       backgroundColor: kprimaryColor,
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(7),
                       ),
                     ),
-                    child: const Text('Next'),
+                    child: const Text('Confirm '),
                   ),
-                  ElevatedButton(
+                  OutlinedButton(
                     onPressed: () {
                       Navigator.of(context).pushReplacement(
                         MaterialPageRoute(
                           builder: (BuildContext context) {
-                            return const PasswordPage();
+                            return const TransactionFailure();
                           },
                         ),
                       );
                     },
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(150, 40),
-                      backgroundColor: kprimaryColor,
-                      foregroundColor: Colors.white,
+                    style: OutlinedButton.styleFrom(
+                      minimumSize: const Size(175, 40),
+                      maximumSize: const Size(175, 40),
+                      foregroundColor: kprimaryColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(7),
                       ),
                     ),
-                    child: const Text('Next'),
+                    child: const Text('With Biometric'),
                   ),
                 ],
               ),
