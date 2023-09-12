@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/helpers/styles.dart';
-// import 'package:flutter_application/screens/auth/login.dart';
-// import 'package:flutter_application/screens/auth/signup.dart';
 import 'package:flutter_application/screens/dash.dart';
 import 'package:flutter_application/screens/income.dart';
+import 'package:flutter_application/screens/profile.dart';
 import 'package:flutter_application/screens/pay_biller.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
@@ -66,7 +65,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
             break;
           case 3:
             Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => const PayBiller()));
+                MaterialPageRoute(builder: (context) => const ProfilePage()));
             break;
         }
       },

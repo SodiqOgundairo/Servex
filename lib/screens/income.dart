@@ -26,9 +26,7 @@ class _IncomeWidgetState extends State<IncomeWidget> {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
+            onPressed: () {},
             icon: const Icon(Icons.notification_important_sharp),
           ),
         ],
