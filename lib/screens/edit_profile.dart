@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/helpers/styles.dart';
+import 'package:flutter_application/screens/edit_contact.dart';
 import 'package:flutter_application/screens/selectpicture.dart';
 
 class EditProfile extends StatefulWidget {
@@ -133,7 +134,15 @@ class _EditProfileState extends State<EditProfile> {
                 ),
               ),
               OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) {
+                        return const EditContactInfo();
+                      },
+                    ),
+                  );
+                },
                 style: OutlinedButton.styleFrom(
                   // minimumSize: const Size(175, 40),
                   // maximumSize: const Size(175, 40),

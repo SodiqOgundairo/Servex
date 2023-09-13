@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/helpers/styles.dart';
 
-class SelectPicture extends StatelessWidget {
-  const SelectPicture({super.key});
+class EmailSent extends StatelessWidget {
+  const EmailSent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,16 +23,28 @@ class SelectPicture extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Image.asset('assets/images/emptyGallery.png'),
+            Image.asset('assets/images/checkmark.png'),
             Padding(
               padding: const EdgeInsets.all(30.0),
-              child: Text(
-                'Access Denied to your Gallery. Please allow access to upload your desired profile image',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.blueAccent.shade700,
-                  fontStyle: FontStyle.italic,
-                ),
+              child: Column(
+                children: [
+                  Text(
+                    'EMAIL ',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.blueAccent.shade700,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                  Text(
+                    ' Please follow the link sent to your email to change your current email/telephone',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.blueAccent.shade700,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ],
               ),
             ),
             ElevatedButton(
