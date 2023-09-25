@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/helpers/styles.dart';
-import 'package:flutter_application/screens/emaill_sent.dart';
+import 'package:flutter_application/screens/email_sent.dart';
 
 class EditContactInfo extends StatelessWidget {
   const EditContactInfo({super.key});
@@ -97,12 +97,21 @@ class EditContactInfo extends StatelessWidget {
                           hintText: 'JOHN',
                         ),
                       ),
-                      OutlinedButton(
-                        onPressed: () {},
-                        style: OutlinedButton.styleFrom(
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (BuildContext context) {
+                                return const EmailSent();
+                              },
+                            ),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
                           // minimumSize: const Size(175, 40),
                           // maximumSize: const Size(175, 40),
-                          foregroundColor: kprimaryColor,
+                          foregroundColor: Colors.white,
+                          backgroundColor: kprimaryColor,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(7),
                           ),
@@ -112,27 +121,6 @@ class EditContactInfo extends StatelessWidget {
                     ],
                   ),
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  // Navigator.of(context).pushReplacement(
-                  //   MaterialPageRoute(
-                  //     builder: (BuildContext context) {
-                  //       return const EmailSent();
-                  //     },
-                  //   ),
-                  // );
-                },
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(170, 40),
-                  maximumSize: const Size(170, 40),
-                  backgroundColor: kprimaryColor,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(7),
-                  ),
-                ),
-                child: const Text('Save'),
               ),
             ],
           ),

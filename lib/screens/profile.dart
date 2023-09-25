@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application/helpers/styles.dart';
 import 'package:flutter_application/screens/edit_profile.dart';
 import 'package:flutter_application/screens/home.dart';
+import 'package:flutter_application/screens/profile_page.dart';
 import 'package:flutter_application/widgets/nav_bar.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -96,7 +97,15 @@ class _ProfilePageState extends State<ProfilePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            return const MyProfile();
+                          },
+                        ),
+                      );
+                    },
                     child: Card(
                       color: Colors.blue.shade100,
                       child: const ListTile(
@@ -169,9 +178,18 @@ class _ProfilePageState extends State<ProfilePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Image.asset('assets/images/ig_logo.png'),
-                      Image.asset('assets/images/twitter.png'),
-                      Image.asset('assets/images/fb_logo.png'),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Image.asset('assets/images/ig_logo.png'),
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Image.asset('assets/images/twitter.png'),
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Image.asset('assets/images/fb_logo.png'),
+                      ),
                     ],
                   ),
                 ],
