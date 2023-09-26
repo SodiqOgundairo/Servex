@@ -272,7 +272,6 @@ class _AddAccountState extends State<AddAccount> {
                       actions: [
                         TextButton(
                           onPressed: () {
-                            Navigator.pop(context);
                             Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
                                 builder: (BuildContext context) {

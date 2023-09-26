@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_application/helpers/styles.dart';
+
 import 'package:flutter_application/screens/edit_profile.dart';
+import 'package:flutter_application/screens/help.dart';
+
 import 'package:flutter_application/screens/home.dart';
+
+import 'package:flutter_application/screens/notification_settings.dart';
+
 import 'package:flutter_application/screens/profile_page.dart';
+
+import 'package:flutter_application/screens/switch_account.dart';
+
 import 'package:flutter_application/widgets/nav_bar.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -110,52 +120,92 @@ class _ProfilePageState extends State<ProfilePage> {
                       color: Colors.blue.shade100,
                       child: const ListTile(
                         // shape: ListTileTheme(),
+
                         contentPadding:
                             EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+
                         leading: Icon(Icons.person_pin),
+
                         title: Text('My Profile'),
+
                         trailing: Icon(Icons.keyboard_arrow_right),
                       ),
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            return const NotificationSettings();
+                          },
+                        ),
+                      );
+                    },
                     child: Card(
                       color: Colors.blue.shade100,
                       child: const ListTile(
                         // shape: ListTileTheme(),
+
                         contentPadding:
                             EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+
                         leading: Icon(Icons.notifications_active),
+
                         title: Text('Notification Settings'),
+
                         trailing: Icon(Icons.keyboard_arrow_right),
                       ),
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            return const SwitchAccount();
+                          },
+                        ),
+                      );
+                    },
                     child: Card(
                       color: Colors.blue.shade100,
                       child: const ListTile(
                         // shape: ListTileTheme(),
+
                         contentPadding:
                             EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+
                         leading: Icon(Icons.compare_arrows_rounded),
+
                         title: Text('Switch Account'),
+
                         trailing: Icon(Icons.keyboard_arrow_right),
                       ),
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            return const Help();
+                          },
+                        ),
+                      );
+                    },
                     child: Card(
                       color: Colors.blue.shade100,
                       child: const ListTile(
                         // shape: ListTileTheme(),
+
                         contentPadding:
                             EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+
                         leading: Icon(Icons.live_help_rounded),
+
                         title: Text('Help'),
+
                         trailing: Icon(Icons.keyboard_arrow_right),
                       ),
                     ),

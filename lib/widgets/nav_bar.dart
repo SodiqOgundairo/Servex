@@ -6,7 +6,7 @@ import 'package:flutter_application/screens/profile.dart';
 import 'package:flutter_application/screens/pay_biller.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
-  BottomNavigationBarWidget({Key? key}) : super(key: key);
+  BottomNavigationBarWidget({super.key});
 
   @override
   _BottomNavigationBarWidgetState createState() =>

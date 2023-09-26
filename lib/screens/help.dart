@@ -5,21 +5,16 @@ import 'package:flutter_application/screens/biometric.dart';
 import 'package:flutter_application/screens/two_step_verify.dart';
 import 'package:flutter_application/screens/deactivate.dart';
 
-class MyProfile extends StatefulWidget {
-  const MyProfile({super.key});
+class Help extends StatelessWidget {
+  const Help({super.key});
 
-  @override
-  State<MyProfile> createState() => _MyProfileState();
-}
-
-class _MyProfileState extends State<MyProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text(
-          'My Profile',
+          'Help',
           style: TextStyle(
             color: Colors.white,
             fontSize: 14,
@@ -38,7 +33,7 @@ class _MyProfileState extends State<MyProfile> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
                 ListTile(
@@ -54,7 +49,7 @@ class _MyProfileState extends State<MyProfile> {
                       );
                     },
                     child: const Text(
-                      'Change Password/Transaction Pin',
+                      'Request for Debit Card',
                     ),
                   ),
                 ),
@@ -74,7 +69,7 @@ class _MyProfileState extends State<MyProfile> {
                       alignment: Alignment.centerLeft,
                     ),
                     child: const Text(
-                      'Apply or Change Biometric',
+                      'FAQs',
                     ),
                   ),
                 ),
@@ -90,11 +85,12 @@ class _MyProfileState extends State<MyProfile> {
                         ),
                       );
                     },
-                    child: const Text('Two-Step Verification'),
+                    child: const Text('Talk to your account officer'),
                   ),
                 ),
                 ListTile(
                   visualDensity: VisualDensity.compact,
+// titleAlignment: ,
                   leading: TextButton(
                     onPressed: () {
                       Navigator.of(context).push(
@@ -105,14 +101,11 @@ class _MyProfileState extends State<MyProfile> {
                         ),
                       );
                     },
-                    child: const Text('Deactivate My Account'),
+                    child: const Text('About Servex'),
                   ),
                 ),
               ],
             ),
-          ),
-          Expanded(
-            child: Image.asset('assets/images/profile_secure.png'),
           ),
         ],
       ),

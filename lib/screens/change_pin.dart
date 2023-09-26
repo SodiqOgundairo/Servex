@@ -176,7 +176,9 @@ class ChangePin extends StatelessWidget {
               height: 40,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(100.0, 40),
                 backgroundColor: kprimaryColor,
