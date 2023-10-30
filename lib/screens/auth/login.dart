@@ -17,14 +17,14 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            const SizedBox(
+              height: 50.0,
+            ),
             const Image(
               image: AssetImage('assets/images/logo.png'),
               width: 70,
-            ),
-            const SizedBox(
-              height: 30.0,
             ),
             const Column(
               children: [
@@ -182,9 +182,7 @@ class _LoginPageState extends State<LoginPage> {
             Image.asset(
               'assets/images/vector1.png',
             ),
-            const SizedBox(
-              height: 20.0,
-            ),
+
             const Text(
               'Servex 1.0',
               style: TextStyle(

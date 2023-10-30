@@ -32,14 +32,14 @@ class _SignupSuccessState extends State<SignupSuccess> {
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            // const SizedBox(
+            //   height: 50,
+            // ),
             const Image(
               image: AssetImage('assets/images/logo.png'),
               width: 80,
-            ),
-            const SizedBox(
-              height: 30,
             ),
             Container(
               margin: const EdgeInsets.symmetric(
@@ -60,11 +60,9 @@ class _SignupSuccessState extends State<SignupSuccess> {
                 ],
               ),
             ),
-            const SizedBox(
-              child: Text(
-                'Servex 1.0',
-                style: TextStyle(color: Colors.grey),
-              ),
+            const Text(
+              'Servex 1.0',
+              style: TextStyle(color: Colors.grey),
             ),
           ],
         ),

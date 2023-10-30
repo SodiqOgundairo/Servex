@@ -16,55 +16,60 @@ class _StartUpPageState extends State<StartUpPage> {
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            const SizedBox(
+              height: 50,
+            ),
             Image.asset('assets/images/welcome.png'),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return const LoginPage();
-                    },
+            Column(
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return const LoginPage();
+                        },
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(300, 40),
+                    backgroundColor: kprimaryColor,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7),
+                    ),
                   ),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size(300, 40),
-                backgroundColor: kprimaryColor,
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(7),
+                  child: const Text('Login'),
                 ),
-              ),
-              child: const Text('Login'),
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            OutlinedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return const SignUpPage();
-                    },
+                const SizedBox(
+                  height: 20.0,
+                ),
+                OutlinedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return const SignUpPage();
+                        },
+                      ),
+                    );
+                  },
+                  style: OutlinedButton.styleFrom(
+                    minimumSize: const Size(300, 40),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7),
+                    ),
                   ),
-                );
-              },
-              style: OutlinedButton.styleFrom(
-                minimumSize: const Size(300, 40),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(7),
+                  child: const Text('SignUp'),
                 ),
-              ),
-              child: const Text('SignUp'),
+              ],
             ),
-            const SizedBox(
-              child: Text(
-                'Servex 1.0',
-                style: TextStyle(color: Colors.grey),
-              ),
+            const Text(
+              'Servex 1.0',
+              style: TextStyle(color: Colors.grey),
             ),
           ],
         ),

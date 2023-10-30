@@ -17,8 +17,11 @@ class _BioPageState extends State<BioPage> {
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            const SizedBox(
+              height: 50,
+            ),
             const Image(
               image: AssetImage('assets/images/logo.png'),
               width: 100,
@@ -53,32 +56,30 @@ class _BioPageState extends State<BioPage> {
                 30.0,
               ),
               decoration: BoxDecoration(
-                color: Colors.grey.shade300,
+                color: Colors.grey.shade100,
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: const BioInputWidget(),
             ),
-            SafeArea(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) {
-                        return const PasswordPage();
-                      },
-                    ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(370, 40),
-                  backgroundColor: kprimaryColor,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(7),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return const PasswordPage();
+                    },
                   ),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size(370, 40),
+                backgroundColor: kprimaryColor,
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(7),
                 ),
-                child: const Text('Next'),
               ),
+              child: const Text('Next'),
             ),
             ListTile(
               title: const Text('Already have an Account?'),

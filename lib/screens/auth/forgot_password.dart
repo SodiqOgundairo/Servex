@@ -17,15 +17,16 @@ class _ForgotPasswordState extends State<ForgotPassword> {
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            const SizedBox(
+              height: 50,
+            ),
             const Image(
               image: AssetImage('assets/images/logo.png'),
               width: 70,
             ),
-            const SizedBox(
-              height: 30.0,
-            ),
+
             const Column(
               children: [
                 Text(
@@ -48,9 +49,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               ],
             ),
 
-            const SizedBox(
-              height: 30.0,
-            ),
             Container(
               margin: const EdgeInsets.symmetric(
                 vertical: 10.0,
@@ -109,48 +107,50 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 10.0,
-            ),
-            Center(
-              // title: const Text("Forgot Password"),
-              child: TextButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) {
-                        return const LoginPage();
-                      },
-                    ),
-                  );
-                },
-                child: const Text('Login'),
-              ),
-            ),
-            Center(
-              // title: const Text("Forgot Password")
-              child: TextButton(
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) {
-                        return const SignUpPage();
-                      },
-                    ),
-                  );
-                },
-                // child: const Text("Don't have an account yet? Create One"),
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("Don't have an account yet? "),
-                    Text(
-                      'Create one',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ],
+
+            Column(
+              children: [
+                Center(
+                  // title: const Text("Forgot Password"),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            return const LoginPage();
+                          },
+                        ),
+                      );
+                    },
+                    child: const Text('Login'),
+                  ),
                 ),
-              ),
+                Center(
+                  // title: const Text("Forgot Password")
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            return const SignUpPage();
+                          },
+                        ),
+                      );
+                    },
+                    // child: const Text("Don't have an account yet? Create One"),
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Don't have an account yet? "),
+                        Text(
+                          'Create one',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
             // const SizedBox(
             //   height: 30.0,

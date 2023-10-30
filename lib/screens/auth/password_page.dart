@@ -17,14 +17,14 @@ class _PasswordPageState extends State<PasswordPage> {
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            const SizedBox(
+              height: 50,
+            ),
             const Image(
               image: AssetImage('assets/images/logo.png'),
               width: 100,
-            ),
-            const SizedBox(
-              height: 30,
             ),
             const Column(
               children: [
@@ -53,32 +53,30 @@ class _PasswordPageState extends State<PasswordPage> {
                 30.0,
               ),
               decoration: BoxDecoration(
-                color: Colors.grey.shade300,
+                color: Colors.grey.shade100,
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: const PwdInput(),
             ),
-            SafeArea(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) {
-                        return const SignupSuccess();
-                      },
-                    ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(370, 40),
-                  backgroundColor: kprimaryColor,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(7),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return const SignupSuccess();
+                    },
                   ),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size(370, 40),
+                backgroundColor: kprimaryColor,
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(7),
                 ),
-                child: const Text('Comlete your SignUp'),
               ),
+              child: const Text('Comlete your SignUp'),
             ),
             ListTile(
               title: const Text('Already have an Account?'),
@@ -96,11 +94,9 @@ class _PasswordPageState extends State<PasswordPage> {
               ),
               visualDensity: VisualDensity.comfortable,
             ),
-            const SizedBox(
-              child: Text(
-                'Servex 1.0',
-                style: TextStyle(color: Colors.grey),
-              ),
+            Text(
+              'Servex 1.0',
+              style: TextStyle(color: Colors.grey),
             ),
           ],
         ),

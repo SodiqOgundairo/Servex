@@ -17,11 +17,14 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            const SizedBox(
+              height: 50,
+            ),
             const Image(
               image: AssetImage('assets/images/logo.png'),
-              width: 100,
+              width: 70,
             ),
             const SizedBox(
               height: 30,
@@ -53,68 +56,70 @@ class _SignUpPageState extends State<SignUpPage> {
                 30.0,
               ),
               decoration: BoxDecoration(
-                color: Colors.grey.shade300,
+                color: Colors.grey.shade100,
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: const ContactInputWidget(),
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return const BioPage();
-                    },
-                  ),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size(370, 40),
-                backgroundColor: kprimaryColor,
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(7),
-                ),
-              ),
-              child: const Text('Next'),
-            ),
-            ListTile(
-              title: const Text('Already have an Account?'),
-              trailing: TextButton(
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) {
-                        return const LoginPage();
-                      },
+            Column(
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return const BioPage();
+                        },
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(370, 40),
+                    backgroundColor: kprimaryColor,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7),
                     ),
-                  );
-                },
-                child: const Text('Login'),
-              ),
-            ),
-            const SizedBox(
-              height: 40,
-              child: Text('OR'),
-            ),
-            OutlinedButton.icon(
-              onPressed: () {},
-              label: const Text('SIGNUP WITH GOOGLE'),
-              style: OutlinedButton.styleFrom(
-                minimumSize: const Size(370, 40),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(7),
+                  ),
+                  child: const Text('Next'),
                 ),
-              ),
-              icon: const ImageIcon(
-                AssetImage('assets/images/google-g-logo.png'),
-              ),
+                ListTile(
+                  title: const Text('Already have an Account?'),
+                  trailing: TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            return const LoginPage();
+                          },
+                        ),
+                      );
+                    },
+                    child: const Text('Login'),
+                  ),
+                ),
+                const SizedBox(
+                  height: 40,
+                  child: Text('OR'),
+                ),
+                OutlinedButton.icon(
+                  onPressed: () {},
+                  label: const Text('SIGNUP WITH GOOGLE'),
+                  style: OutlinedButton.styleFrom(
+                    minimumSize: const Size(370, 40),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7),
+                    ),
+                  ),
+                  icon: const ImageIcon(
+                    AssetImage('assets/images/google-g-logo.png'),
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(
-              child: Text(
-                'Servex 1.0',
-                style: TextStyle(color: Colors.grey),
-              ),
+            const Text(
+              'Servex 1.0',
+              style: TextStyle(color: Colors.grey),
             ),
           ],
         ),
